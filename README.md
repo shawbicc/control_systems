@@ -19,6 +19,6 @@ The main loop initializes the simulator and controller, and runs a simulation wh
 
 ## Plots
 ### PD
-![PD Controller Plot](animations/pd_plot.png)
+![PD Controller Plot](animations/pd.gif)
 ### LQR
-![LQR Controller Plot](animations/lqr_plot.png)
+![LQR Controller Plot](animations/lqr.gif)
