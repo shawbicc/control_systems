@@ -51,7 +51,7 @@ class Simulator:
         self.sol = sol
         return sol
 
-    def animate(self):
+    def animate(self, filename, fps=30, save_as_gif=False):
         fig, ax = plt.subplots(figsize=(8, 8))
         ax.set_xlim(-5, 5); ax.set_ylim(0, 10)
         ax.set_aspect('equal'); ax.grid(True)
@@ -68,6 +68,11 @@ class Simulator:
             trail.set_data(self.sol.y[0, :frame], self.sol.y[1, :frame])
             return line, trail
 
-        ani = FuncAnimation(fig, update, frames=len(self.t_eval), blit=True, interval=33)
+        animation = FuncAnimation(fig, update, frames=len(self.t_eval), blit=True, interval=33)
         plt.legend()
         plt.show()
+
+        # save animation as GIF
+        if save_as_gif:
+            animation.save(filename, writer='pillow', fps=fps)
+        
